@@ -2,7 +2,7 @@ class LearningPage {
   viewMyCourses() {
     cy.contains("a", "My Course").click({ force: true });
     cy.wait(5000);
-    //cy.contains("Start Now").should("be.visible");
+    cy.contains("Start Now").should("be.visible");
     cy.contains("Complete Russian Language Course").should("be.visible");
     cy.contains("Continue").should("be.visible");
   }
