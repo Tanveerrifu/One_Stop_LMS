@@ -107,6 +107,15 @@ describe("Course Page", () => {
     //save
     it("User can save details", () => {
       cy.xpath("//div[@class='action-btn text-center']//button[@type='submit'][normalize-space()='Save']").click({force:true});
+      cy.wait(8000);
+    });
+    //input social link
+    it("User can input social link and save successfully", () => {
+      profilePage.socialLink();
+    });
+    //update notification
+    it("User can update notification", () => {
+      profilePage.notification();
     });
 
   after(() => {

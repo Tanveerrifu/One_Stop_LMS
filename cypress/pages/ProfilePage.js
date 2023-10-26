@@ -35,71 +35,143 @@ class ProfilePage {
     cy.get("thead > tr > .price").should("be.visible");
     cy.get("thead > tr > .price").should("be.visible");
   }
-  paymentDetailsBtn(){
-    cy.get(':nth-child(1) > .dwonload > button').click({force:true});
+  paymentDetailsBtn() {
+    cy.get(":nth-child(1) > .dwonload > button").click({ force: true });
     cy.wait(5000);
-    cy.get('.dwonload-btn > .button-1').click({force:true});
+    cy.get(".dwonload-btn > .button-1").click({ force: true });
     cy.wait(5000);
   }
-  settings(){
-    cy.get('.profile-header > ul > :nth-child(6) > a').should('be.visible');
-    cy.get('.profile-header > ul > :nth-child(6) > a').click({force:true});
+  settings() {
+    cy.wait(8000);
+    cy.get(".profile-header > ul > :nth-child(6) > a").should("be.visible");
+    cy.get(".profile-header > ul > :nth-child(6) > a").click({ force: true });
     cy.wait(5000);
-    cy.get('.mt-45 > .col-lg-12 > .profile-setting-card > .heading-title > h2').should('include.text','Basic Info');
+    cy.get(
+      ".mt-45 > .col-lg-12 > .profile-setting-card > .heading-title > h2"
+    ).should("include.text", "Basic Info");
   }
-  userFirstName(){
+  userFirstName() {
     cy.wait(5000);
     cy.get('input[name="first_name"]').clear().type("a");
-    cy.get('.mt-45 > .col-lg-12 > .profile-setting-card > .body-content').click();
+    cy.get(
+      ".mt-45 > .col-lg-12 > .profile-setting-card > .body-content"
+    ).click();
     cy.wait(5000);
-    cy.get('.error-message').should('include.text','First name should be between 2 to 17 characters long');
-    cy.get('input[name="first_name"]').clear({force:true}).type("Xavier");
-
+    cy.get(".error-message").should(
+      "include.text",
+      "First name should be between 2 to 17 characters long"
+    );
+    cy.get('input[name="first_name"]').clear({ force: true }).type("Xavier");
   }
-  userLastName(){
+  userLastName() {
     cy.wait(5000);
-    cy.get('input[name="last_name"]').clear({force:true}).type("a");
-    cy.get('.mt-45 > .col-lg-12 > .profile-setting-card > .body-content').click();
+    cy.get('input[name="last_name"]').clear({ force: true }).type("a");
+    cy.get(
+      ".mt-45 > .col-lg-12 > .profile-setting-card > .body-content"
+    ).click();
     cy.wait(5000);
-    cy.get('.error-message').should('include.text','Last name should be between 2 to 17 characters long');
-    cy.get('input[name="last_name"]').clear({force:true}).type("Pena");
+    cy.get(".error-message").should(
+      "include.text",
+      "Last name should be between 2 to 17 characters long"
+    );
+    cy.get('input[name="last_name"]').clear({ force: true }).type("Pena");
   }
-  profileTitle(){
+  profileTitle() {
     cy.wait(5000);
-    cy.get('input[name="profile_title"]').clear({force:true}).type("a");
-    cy.get('.mt-45 > .col-lg-12 > .profile-setting-card > .body-content').click();
+    cy.get('input[name="profile_title"]').clear({ force: true }).type("a");
+    cy.get(
+      ".mt-45 > .col-lg-12 > .profile-setting-card > .body-content"
+    ).click();
     cy.wait(5000);
-    cy.get('.error-message').should('include.text','Profile Title should be between 3 to 25 characters long');
-    cy.get('input[name="profile_title"]').clear({force:true}).type("QA Engineer");
-    
+    cy.get(".error-message").should(
+      "include.text",
+      "Profile Title should be between 3 to 25 characters long"
+    );
+    cy.get('input[name="profile_title"]')
+      .clear({ force: true })
+      .type("QA Engineer");
   }
-  currentEmployment(){
+  currentEmployment() {
     cy.wait(5000);
-    cy.get('input[name="current_employment"]').clear({force:true}).type("a");
-    cy.get('.mt-45 > .col-lg-12 > .profile-setting-card > .body-content').click();
+    cy.get('input[name="current_employment"]').clear({ force: true }).type("a");
+    cy.get(
+      ".mt-45 > .col-lg-12 > .profile-setting-card > .body-content"
+    ).click();
     cy.wait(5000);
-    cy.get('.error-message').should('include.text','Current Employment should be between 3 to 25 characters long');
-    cy.get('input[name="current_employment"]').clear({force:true}).type("Shadhinlab");
+    cy.get(".error-message").should(
+      "include.text",
+      "Current Employment should be between 3 to 25 characters long"
+    );
+    cy.get('input[name="current_employment"]')
+      .clear({ force: true })
+      .type("Shadhinlab");
   }
-  portfolioLink(){
+  portfolioLink() {
     cy.wait(5000);
-    cy.get('input[name="portfolio_link"]').clear({force:true}).type("a");
-    cy.get('.mt-45 > .col-lg-12 > .profile-setting-card > .body-content').click();
+    cy.get('input[name="portfolio_link"]').clear({ force: true }).type("a");
+    cy.get(
+      ".mt-45 > .col-lg-12 > .profile-setting-card > .body-content"
+    ).click();
     cy.wait(5000);
-    cy.get('.error-message').should('include.text','Please enter valid url');
-    cy.get('input[name="portfolio_link"]').clear({force:true}).type("https://github.com/tanveerrifu");
+    cy.get(".error-message").should("include.text", "Please enter valid url");
+    cy.get('input[name="portfolio_link"]')
+      .clear({ force: true })
+      .type("https://github.com/tanveerrifu");
   }
-  language(){
+  language() {
     cy.wait(5000);
-    cy.get('input[name="language"]').click({force:true}).type("Bengali");
+    cy.get('input[name="language"]')
+      .click({ force: true })
+      .clear()
+      .type("Bengali");
   }
-  bio(){
+  bio() {
     cy.wait(5000);
-    cy.get('textarea[name="bio"]').clear({force:true}).type("a");
-    cy.get('.mt-45 > .col-lg-12 > .profile-setting-card > .body-content').click();
+    cy.get('textarea[name="bio"]').clear({ force: true }).type("a");
+    cy.get(
+      ".mt-45 > .col-lg-12 > .profile-setting-card > .body-content"
+    ).click();
     cy.wait(5000);
-    cy.get('.error-message').should('include.text','Short bio should be between 150 to 1250 characters long');
-    cy.get('textarea[name="bio"]').clear({force:true}).type("I am a QA Engineer. My name is Tanvir Hasan. I live in Dhaka, Bangladesh");
+    cy.get(".error-message").should(
+      "include.text",
+      "Short bio should be between 150 to 1250 characters long"
+    );
+    cy.get('textarea[name="bio"]')
+      .clear({ force: true })
+      .type(
+        "I am a QA Engineer. My name is Tanvir Hasan. I live in Dhaka, Bangladesh I am a QA Engineer. My name is Tanvir Hasan. I live in Dhaka, Bangladesh I am a QA Engineer. "
+      );
+  }
+  socialLink() {
+    cy.wait(5000);
+    cy.get('input[name="facebook"]').type(
+      "https://web.facebook.com/tanveerr.city/",
+      { force: true }
+    );
+    cy.get('input[name="linkedin"]').type(
+      "https://www.linkedin.com/in/tanvir-hasan-sqa/",
+      { force: true }
+    );
+    cy.get('input[name="twitter"]').type(
+      "https://twitter.com/neymarjr?lang=en",
+      { force: true }
+    );
+    cy.wait(5000);
+    cy.xpath(
+      "//div[@class='add-social-media-link']//button[@type='submit'][normalize-space()='Save']"
+    ).click({ force: true });
+  }
+  notification() {
+    cy.get('#notification-courses-tab').click({ force: true });
+    cy.wait(8000);
+    cy.get(
+      ":nth-child(2) > .single-notification-item > .right > span > input"
+    ).click({force:true});
+    cy.get(
+      ":nth-child(3) > .single-notification-item > .right > span > input"
+    ).click({force:true});
+    cy.get(".body-content > .row > .col-12 > .action-btn > .button-1").click({force:true});
+    cy.wait(5000);
   }
 }
 
